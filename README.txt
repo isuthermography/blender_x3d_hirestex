@@ -8,7 +8,7 @@ can go in your ~/.config/blender/<version>/scripts/addons
 
 Then you need to run blender, go to Preferences...Addons
 and enable the new "Web3D X3D/VRML2 format (highres texture export)"
-entry.
+entry. Don't forget to save your changes to the preferences!
 
 Once you have done this, the new option should show up in
 the import/export menus

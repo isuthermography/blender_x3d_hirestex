@@ -229,6 +229,7 @@ def export(file,
            path_mode='AUTO',
            name_decorations=True,
            texcoord_precision=6,
+           vertcoord_precision=6,
            ):
 
     # -------------------------------------------------------------------------
@@ -781,7 +782,7 @@ def export(file,
                         fw('%s<Coordinate ' % ident)
                         fw('point="')
                         for x3d_v in vert_tri_list:
-                            fw('%.6f %.6f %.6f ' % mesh_vertices[x3d_v[1]].co[:])
+                            fw('%.*f %.*f %.*f ' % (vertcoord_precision,mesh_vertices[x3d_v[1]].co[0],vertcoord_precision,mesh_vertices[x3d_v[1]].co[1],vertcoord_precision,mesh_vertices[x3d_v[1]].co[2]))
                         fw('" />\n')
 
                         if use_normals or is_force_normals:
@@ -886,7 +887,7 @@ def export(file,
                                 fw('DEF=%s\n' % mesh_id_coords)
                                 fw(ident_step + 'point="')
                                 for v in mesh.vertices:
-                                    fw('%.6f %.6f %.6f ' % v.co[:])
+                                    fw('%.*f %.*f %.*f ' % (vertcoord_precision,v.co[0],vertcoord_precision,v.co[1],vertcoord_precision,v.co[2])
                                 fw('"\n')
                                 fw(ident_step + '/>\n')
 
@@ -1577,6 +1578,7 @@ def save(context,
          path_mode='AUTO',
          name_decorations=True,
          texcoord_precision=6,
+         vertcoord_precision=6
          ):
 
     bpy.path.ensure_ext(filepath, '.x3dz' if use_compress else '.x3d')
@@ -1606,6 +1608,7 @@ def save(context,
            path_mode=path_mode,
            name_decorations=name_decorations,
            texcoord_precision=texcoord_precision,
+           vertcoord_precision=vertcoord_precision,
            )
 
     return {'FINISHED'}

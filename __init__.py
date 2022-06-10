@@ -107,6 +107,7 @@ class X3D_PT_export_include(bpy.types.Panel):
         layout.prop(operator, "use_hierarchy")
         layout.prop(operator, "name_decorations")
         layout.prop(operator, "use_h3d")
+        layout.prop(operator, "vertcoord_precision")
         layout.prop(operator, "texcoord_precision")
 
 
@@ -219,6 +220,11 @@ class ExportX3D(bpy.types.Operator, ExportHelper):
             name="Scale",
             min=0.01, max=1000.0,
             default=1.0,
+            )
+    vertcoord_precision: IntProperty(
+            name="Vertex coordinate precision",
+            min=1, max=12,
+            default=9,
             )
     texcoord_precision: IntProperty(
             name="Texture coordinate precision",
