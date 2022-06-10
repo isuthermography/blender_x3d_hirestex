@@ -887,7 +887,7 @@ def export(file,
                                 fw('DEF=%s\n' % mesh_id_coords)
                                 fw(ident_step + 'point="')
                                 for v in mesh.vertices:
-                                    fw('%.*f %.*f %.*f ' % (vertcoord_precision,v.co[0],vertcoord_precision,v.co[1],vertcoord_precision,v.co[2])
+                                    fw('%.*f %.*f %.*f ' % (vertcoord_precision,v.co[0],vertcoord_precision,v.co[1],vertcoord_precision,v.co[2]))
                                 fw('"\n')
                                 fw(ident_step + '/>\n')
 
